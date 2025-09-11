@@ -48,28 +48,28 @@ def astar_search(graph, heuristics, start, goal):
 
 # Example Graph (with distances)
 graph = {
-    'A': {'B': 1, 'C': 3},
-    'B': {'A': 1, 'D': 3, 'E': 1},
-    'C': {'A': 3, 'F': 5},
-    'D': {'B': 3, 'G': 2},
-    'E': {'B': 1, 'G': 1},
-    'F': {'C': 5, 'G': 2},
-    'G': {'D': 2, 'E': 1, 'F': 2}
+    'S': {'A': 3, 'B': 1, 'C': 8},
+    'A': {'D': 3, 'G': 15, 'E': 7, 'S': 3},
+    'B': {'G': 20, 'S': 1},
+    'C': {'G': 5, 'S': 8},
+    'D': {'A': 3},
+    'E': {'A': 7},
+    'G': {'A': 15, 'B': 20, 'C': 5},
 }
 
 # Heuristic values (straight-line estimates to goal 'G')
 heuristics = {
-    'A': 7,
-    'B': 6,
-    'C': 5,
-    'D': 4,
-    'E': 2,
-    'F': 3,
+    'S': 20,
+    'A': 12,
+    'B': 17,
+    'C': 25,
+    'D': 17,
+    'E': 10,
     'G': 0
 }
 
 # Run A* Search
-start, goal = 'A', 'G'
+start, goal = 'S', 'G'
 path = astar_search(graph, heuristics, start, goal)
 print(f"Shortest path from {start} to {goal}: {path}")
 
